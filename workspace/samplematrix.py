@@ -1,3 +1,5 @@
+"""it was a sample progrom created by opencode you can delete it for your projects"""
+
 """A small matrix program: basic operations on matrices stored as lists of lists."""
 
 

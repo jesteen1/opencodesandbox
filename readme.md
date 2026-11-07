@@ -14,31 +14,39 @@ Follow these instructions to build and run the application using **Docker Compos
 ## Getting Started
 
 ### 1. Clone the Repository
-Open your terminal (PowerShell, Command Prompt, or Linux/macOS terminal) and clone the repository:
 ```bash
-git clone <YOUR-REPOSITORY-URL>
-cd <YOUR-REPOSITORY-FOLDER>
+git clone https://github.com/jesteen1/opencodesandbox.git
+cd opencodesandbox
 ```
 
----
-
 ### 2. Build the Docker Image
-To compile and build the Docker image with Docker Compose, run:
-
 ```bash
 docker compose up opencodesandbox --build
 ```
 
 > **Note:** The `--build` flag ensures Docker compiles the latest version of your `Dockerfile` and dependencies before starting the service.
 
----
-
 ### 3. Run the Application Interactively
-To launch and attach to the interactive `opencode` environment inside the container, run:
-
 ```bash
 docker compose run opencodesandbox
 ```
+
+---
+
+## Workspace
+
+All files created, edited, or used by **OpenCode AI** live in the `workspace/` folder.
+
+- On your machine: `./workspace` (in the project root)
+- Inside the container: `/workspace`
+
+The folder is mounted as a volume, so:
+
+- Files OpenCode generates appear in `./workspace` on your host.
+- Anything you put in `./workspace` is immediately visible to OpenCode.
+- Your files **persist** after the container stops or is removed.
+
+> **Tip:** Put the project you want OpenCode to work on inside `workspace/`. Files outside this folder are not accessible to the container.
 
 ---
 
@@ -49,3 +57,4 @@ docker compose run opencodesandbox
 | **Build & Start** | `docker compose up opencodesandbox --build` |
 | **Run Interactively** | `docker compose run opencodesandbox` |
 | **Stop Stack** | `docker compose down` |
+| **Workspace Location** | `./workspace` (host) → `/workspace` (container) |
