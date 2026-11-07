@@ -1,0 +1,14 @@
+services:
+  opencodesandbox:
+    build: .
+    command: ["opencode"]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/workspace              # bind mount (your code)
+      - /workspace  # anonymous volume
+      - mydata:/workspace    # named volume
+      
+volumes:
+  mydata:        
+                 # named volumes must be declared here
