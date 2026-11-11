@@ -21,15 +21,23 @@ cd opencodesandbox
 
 ### 2. Build the Docker Image
 ```bash
-docker compose up opencodesandbox --build
+docker compose build opencodesandbox
 ```
 
-> **Note:** The `--build` flag ensures Docker compiles the latest version of your `Dockerfile` and dependencies before starting the service.
+> **Note:** This command builds or rebuilds the Docker image for the `opencodesandbox` service using the latest `Dockerfile` and dependencies without starting it immediately.
 
 ### 3. Run the Application Interactively
 ```bash
 docker compose run opencodesandbox
 ```
+
+### 4. Stop the Docker Container / Server
+To stop and clean up containers or running services:
+```bash
+docker compose down
+```
+
+> **Note:** `docker compose down` gracefully stops running containers and cleans up the associated networks and resources.
 
 ---
 
@@ -54,7 +62,7 @@ The folder is mounted as a volume, so:
 
 | Action | Command |
 | :--- | :--- |
-| **Build & Start** | `docker compose up opencodesandbox --build` |
+| **Build Image** | `docker compose build opencodesandbox` |
 | **Run Interactively** | `docker compose run opencodesandbox` |
-| **Stop Stack** | `docker compose down` |
+| **Stop Container / Server** | `docker compose down` |
 | **Workspace Location** | `./workspace` (host) → `/workspace` (container) |
