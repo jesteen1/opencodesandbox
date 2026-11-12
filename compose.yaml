@@ -5,9 +5,8 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./:/workspace              # bind mount (your code)
-      - /workspace  # anonymous volume
-      - mydata:/workspace    # named volume
+      - ./workspace:/workspace              # bind mount (your code)
+    
       
 volumes:
   mydata:        
